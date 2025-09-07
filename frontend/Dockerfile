@@ -6,8 +6,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies with cache mount for speed  
+RUN --mount=type=cache,target=/root/.npm \
+    npm install --silent
 
 # Copy source code
 COPY . .

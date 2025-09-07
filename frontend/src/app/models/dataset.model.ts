@@ -41,6 +41,11 @@ export interface SimulationRow {
   prediction?: number;
   confidence?: number;
   data: { [key: string]: any };
+  sensorData?: {
+    temperature: string;
+    pressure: string;
+    humidity: string;
+  };
 }
 
 export interface SimulationResponse {
