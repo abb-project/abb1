@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
     <div class="main-header">
       <div class="header-content">
         <div class="brand-section">
-          <h1>MiniML - Predictive Quality Control</h1>
+          <h1>MiniML - Predictive Quality Control - IntelliInspect</h1>
           <p class="subtitle">Simplified Frontend</p>
         </div>
         <div class="abb-logo">
