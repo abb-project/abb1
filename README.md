@@ -1,4 +1,4 @@
-# 🏭 IntelliInspect: Real-Time Predictive Quality Control
+# IntelliInspect: Real-Time Predictive Quality Control
 
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://docker.com)
 [![Angular](https://img.shields.io/badge/Angular-18+-red)](https://angular.io)
@@ -8,25 +8,25 @@
 
 **AI-powered manufacturing quality control system with real-time predictive analytics**
 
-## 🎯 Overview
+## Overview
 
 IntelliInspect is a complete **real-time predictive quality control system** designed for manufacturing environments. Using machine learning and sensor data, it predicts product quality **before** defects occur, enabling proactive process optimization and significant cost savings.
 
-### 🚨 The Problem It Solves
+### The Problem It Solves
 - **Manufacturing Crisis**: Production lines with 99%+ failure rates
 - **Reactive Quality Control**: Finding defects after products are made  
 - **Manual Inspection**: Slow, expensive, and inconsistent human inspectors
 - **Waste Costs**: Millions lost in scrapped materials and failed products
 
-### ✅ The IntelliInspect Solution
-- **🔮 Predictive Analytics**: AI predicts quality issues before they happen
-- **⚡ Real-Time Processing**: 1-second prediction intervals during production
-- **📊 Live Dashboard**: Beautiful visualizations with actionable insights
-- **💰 ROI Impact**: Prevent waste by stopping bad production early
+### The IntelliInspect Solution
+- **Predictive Analytics**: AI predicts quality issues before they happen
+- **Real-Time Processing**: 1-second prediction intervals during production
+- **Live Dashboard**: Beautiful visualizations with actionable insights
+- **ROI Impact**: Prevent waste by stopping bad production early
 
 ---
 
-## 🚀 Quick Start (5 Minutes)
+## Quick Start (5 Minutes)
 
 ### Prerequisites
 - **Docker Desktop** installed and running
@@ -41,15 +41,15 @@ docker compose up --build
 ```
 
 ### Access Your Application
-- 🌐 **Web Application**: http://localhost:4200
-- 🔗 **Backend API**: http://localhost:5000  
-- 📚 **ML Service Docs**: http://localhost:8000/docs
+- **Web Application**: http://localhost:4200
+- **Backend API**: http://localhost:5000  
+- **ML Service Docs**: http://localhost:8000/docs
 
 ---
 
-## 🎬 Live Demo Experience
+## Live Demo Experience
 
-### 🎥 Demo Video
+###  Demo Video
 > **Full Demo**: Watch IntelliInspect in action from upload to real-time predictions
 
 https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389
@@ -58,7 +58,7 @@ https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389
 
 ---
 
-### 📂 Step 1: Upload Dataset (30 seconds)
+### Step 1: Upload Dataset (30 seconds)
 1. **Drag & Drop** any CSV file with manufacturing sensor data
 2. **Instant Analysis** - See metadata, pass rates, and time ranges
 3. **Ready-to-Use Datasets** available:
@@ -66,25 +66,25 @@ https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389
    - `manufacturing_quality_700_rows.csv` (700 rows - realistic demo)
    - Generate custom datasets with `dataset_generator.py`
 
-### 📅 Step 2: Configure Date Ranges (30 seconds)  
+### Step 2: Configure Date Ranges (30 seconds)  
 1. **Select Training Period** (70% of data for AI learning)
 2. **Choose Testing Period** (15% for model validation)
 3. **Pick Simulation Period** (15% for real-time demo)
 4. **Validation Feedback** - Immediate confirmation of data availability
 
-### 🤖 Step 3: Train AI Model (2 minutes)
+### Step 3: Train AI Model (2 minutes)
 1. **Click Train** - XGBoost machine learning begins
 2. **Live Progress** - Real-time training status updates
 3. **Model Results** - Accuracy, precision, recall, F1-score metrics
 4. **Confusion Matrix** - Detailed prediction performance analysis
 
-### 📈 Step 4: Real-Time Simulation (2 minutes)
+### Step 4: Real-Time Simulation (2 minutes)
 1. **Start Simulation** - Process data at 1-second intervals
 2. **Live Charts** - Real-time line and donut chart updates  
 3. **Statistics Panel** - Pass/fail counts and confidence scores
 4. **Data Table** - Row-by-row predictions with timestamps
 
-### 🏆 Demo Results
+### Demo Results
 ```
 🎯 Typical Demo Performance:
 • Model Accuracy: 85-95%
@@ -95,15 +95,15 @@ https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
-### 🔧 Technology Stack
+### Technology Stack
 - **Frontend**: Angular 18+ with Material Design and Chart.js
 - **Backend**: ASP.NET Core 8 with Entity Framework and SQLite
 - **ML Service**: Python FastAPI with XGBoost and scikit-learn  
 - **Deployment**: Docker Compose with multi-service orchestration
 
-### 📐 Service Architecture
+### Service Architecture
 ```
 Frontend (Angular) ──► Backend (.NET) ──► ML Service (Python)
      ↓                      ↓                    ↓
@@ -112,7 +112,7 @@ Frontend (Angular) ──► Backend (.NET) ──► ML Service (Python)
   Chart.js              SQLite DB           FastAPI Docs
 ```
 
-### 🔄 Data Flow
+### Data Flow
 1. **Upload** → CSV parsing → Database metadata
 2. **Configure** → Date validation → Record counting  
 3. **Train** → Feature engineering → XGBoost model
@@ -120,7 +120,7 @@ Frontend (Angular) ──► Backend (.NET) ──► ML Service (Python)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 abb1/
@@ -146,7 +146,7 @@ abb1/
 
 ---
 
-## 📊 Dataset Generation
+## Dataset Generation
 
 ### Create Custom Datasets
 ```bash
@@ -174,7 +174,7 @@ timestamp,temperature,pressure,vibration,speed,quality
 
 ---
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Docker Issues
 ```bash
@@ -218,7 +218,7 @@ docker compose logs -f
 
 ---
 
-## 📈 Performance Optimization
+## Performance Optimization
 
 ### Development Mode
 - **Frontend**: Live reload with `ng serve`
@@ -233,7 +233,7 @@ docker compose logs -f
 
 ---
 
-## 💼 Business Impact
+## Business Impact
 
 ### Manufacturing Crisis Scenarios
 
@@ -262,38 +262,6 @@ Defect Prevention Value =
 
 Example: $34,850 × 0.80 × 52 weeks = $1,449,280/year saved
 ```
-
----
-
-## 🎯 Hackathon Demo Script
-
-### 5-Minute Presentation Flow
-
-**[0:00-0:30] Problem Introduction**
-> "Manufacturing quality control costs billions in waste. Traditional methods are reactive - finding defects after products are made. IntelliInspect changes this with AI prediction."
-
-**[0:30-1:00] Upload Demo**  
-> *Drag and drop CSV* "In 30 seconds, we analyze 700 manufacturing records, showing 81% pass rate across temperature, pressure, vibration, and speed sensors."
-
-**[1:00-1:30] Configuration Demo**
-> *Select date ranges* "We intelligently split data: 70% for AI training, 15% for testing, 15% for live simulation - all validated instantly."
-
-**[1:30-3:30] Training Demo**  
-> *Click train button* "XGBoost machine learning finds patterns in sensor data. Watch as accuracy climbs to 89% - this model now knows which sensor combinations predict failures."
-
-**[3:30-5:00] Simulation Demo**
-> *Start simulation* "Real-time prediction! Every second we process a new product, predict quality with 84% confidence, and update live charts. Green means pass, red means fail - all before the product is finished."
-
-**[5:00] Impact Statement**
-> "This system prevents 80% of manufacturing waste. For a production line losing $35K per batch to defects, IntelliInspect saves $1.4 million annually. That's the power of predictive quality control."
-
-### Judge Q&A Preparation
-
-**Technical Scalability**: "Built with Docker and stateless architecture - each service can scale independently. ML models are cached for <100ms predictions."
-
-**Real-World Deployment**: "Currently demo-optimized, but designed for production with PostgreSQL, Redis caching, and Kubernetes orchestration."
-
-**Business Model**: "SaaS pricing based on production volume. Enterprise customers pay for prevented waste, not software licenses."
 
 ---
 
