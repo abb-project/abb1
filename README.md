@@ -51,7 +51,7 @@ docker compose up --build
 
 > **Full Demo**: Watch IntelliInspect in action from upload to real-time predictions
 
-[https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389](https://github.com/abb-project/abb1/issues/3#issue-3393593303)
+[[https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389](https://github.com/abb-project/abb1/issues/3#issue-3393593303)](https://private-user-images.githubusercontent.com/92920217/486723916-5f733e4c-8f76-4c26-a71f-f7ccb1ec4381.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTczMjc4MDIsIm5iZiI6MTc1NzMyNzUwMiwicGF0aCI6Ii85MjkyMDIxNy80ODY3MjM5MTYtNWY3MzNlNGMtOGY3Ni00YzI2LWE3MWYtZjdjY2IxZWM0MzgxLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA5MDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwOTA4VDEwMzE0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVjOGFlNWY5ZjBiNjU5ZmVmYjVhNzcxNDkxYWNmNWNhYjE2M2YyNDUwNDI2NjMyNDU5ODk1OWMyZGExYWFjOGEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.m0axGM4VRVw89b3pTe-_xs66lf-IFSu3Nb8esYkUQfw)
 
 ---
 
