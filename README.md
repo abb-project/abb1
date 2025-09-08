@@ -51,7 +51,7 @@ docker compose up --build
 
 > **Full Demo**: Watch IntelliInspect in action from upload to real-time predictions
 
-
+https://github.com/user-attachments/assets/79064a39-94d1-4516-aabd-dc3696f29b00
 
 ---
 
