@@ -47,14 +47,11 @@ docker compose up --build
 
 ---
 
-## Live Demo Experience
+## Demo Video
 
-###  Demo Video
 > **Full Demo**: Watch IntelliInspect in action from upload to real-time predictions
 
-https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389
-
-*Upload your demo video to GitHub Issues or Releases, then copy the generated URL here*
+[https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389](https://github.com/abb-project/abb1/issues/3#issue-3393593303)
 
 ---
 
@@ -83,17 +80,6 @@ https://github.com/user-attachments/assets/616addaa-0781-4f6c-b8c4-bbb69c652389
 2. **Live Charts** - Real-time line and donut chart updates  
 3. **Statistics Panel** - Pass/fail counts and confidence scores
 4. **Data Table** - Row-by-row predictions with timestamps
-
-### Demo Results
-```
-🎯 Typical Demo Performance:
-• Model Accuracy: 85-95%
-• Prediction Confidence: 80-90%
-• Processing Speed: <100ms per prediction
-• Visual Experience: Smooth real-time animations
-```
-
----
 
 ## System Architecture
 
@@ -215,107 +201,3 @@ docker compose logs -f
 2. **Port already in use** → Kill processes or change ports
 3. **Build failures** → Clear Docker cache: `docker system prune`
 4. **Memory issues** → Increase Docker memory limit to 4GB
-
----
-
-## Performance Optimization
-
-### Development Mode
-- **Frontend**: Live reload with `ng serve`
-- **Backend**: Hot reload with `dotnet watch`
-- **ML Service**: Auto-reload with `uvicorn --reload`
-
-### Production Optimization
-- **Database**: PostgreSQL with connection pooling
-- **Caching**: Redis for model and prediction caching
-- **Load Balancing**: Multiple ML service instances
-- **CDN**: Static asset delivery optimization
-
----
-
-## Business Impact
-
-### Manufacturing Crisis Scenarios
-
-#### Scenario 1: Critical Production Failure
-**Before IntelliInspect**:
-- 700 parts produced → 697 failures (99.6% waste)
-- Material cost: $50/part → $34,850 waste per batch
-- Manual inspection finds defects after production
-
-**After IntelliInspect**:
-- Early prediction stops production at sensor alert  
-- Prevent 80% of failures → Save $27,880 per batch
-- ROI: System pays for itself in first week
-
-#### Scenario 2: Quality Optimization
-**Before**: 81% pass rate, unpredictable quality
-**After**: 
-- AI identifies optimal sensor ranges
-- Process adjustments improve to 92% pass rate
-- 11% quality improvement = massive cost savings
-
-### ROI Calculator
-```
-Defect Prevention Value = 
-  (Current Waste Cost) × (Prevention Rate) × (Production Volume)
-
-Example: $34,850 × 0.80 × 52 weeks = $1,449,280/year saved
-```
-
----
-
-## 🤝 Contributing
-
-### Development Setup
-```bash
-# Clone repository
-git clone <repo-url>
-cd abb1
-
-# Backend development
-cd backend
-dotnet restore
-dotnet run
-
-# Frontend development  
-cd frontend
-npm install
-ng serve
-
-# ML service development
-cd ml-service
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-
-### Code Style
-- **Frontend**: Angular style guide with Prettier
-- **Backend**: C# conventions with EditorConfig
-- **ML Service**: PEP 8 with Black formatter
-
----
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
----
-
-## 🎉 Acknowledgments
-
-Built for hackathon demonstration of enterprise-level software engineering with immediate business impact.
-
-**Technologies**: Angular, ASP.NET Core, Python FastAPI, XGBoost, Docker, Material Design, Chart.js
-
----
-
-<div align="center">
-
-**🚀 Ready to revolutionize manufacturing quality control?**
-
-[**Start Demo**](http://localhost:4200) | [**View Documentation**](./PROJECT_DOCUMENTATION.md) | [**Generate Dataset**](./dataset_generator.py)
-
-**Built with ❤️ for smarter manufacturing**
-
-</div>
