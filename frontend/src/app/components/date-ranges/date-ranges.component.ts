@@ -41,7 +41,8 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
     </div>
 
     <div *ngIf="dataset">
-      <!-- Date Range Helper Section -->
+      <!-- Date Range Helper Section - COMMENTED OUT -->
+      <!-- 
       <div class="date-helper-section">
         <div class="helper-card">
           <div class="helper-header">
@@ -93,6 +94,7 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
           </div>
         </div>
       </div>
+      -->
 
       <!-- Period Cards Container -->
       <form [formGroup]="dateForm" (ngSubmit)="validateRanges()">
@@ -222,7 +224,7 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
         <div class="chart-container">
           <h3 class="chart-title">
             <mat-icon>bar_chart</mat-icon>
-            📊 Selected Date Ranges Summary
+            📊 Data Split Summary
           </h3>
           <div *ngIf="!validationResult?.isValid" style="padding: 40px; text-align: center; color: #999;">
             Select date ranges and click "Validate Ranges" to see the chart
@@ -707,7 +709,7 @@ export class DateRangesComponent implements OnInit {
         },
         title: {
           display: true,
-          text: 'Timeline (months)',
+          text: 'Periods',
           color: '#666',
           font: {
             size: 12
@@ -820,27 +822,24 @@ export class DateRangesComponent implements OnInit {
 
     console.log('🎯 Generating timeline chart...', this.validationResult);
 
-    // Simple chart data - always show a beautiful chart like your image
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    
-    // Create data that matches your image exactly
-    const data = [55, 42, 48, 45, 38, 52, 46, 41, 35, 37, 32, 25];
-    const colors = [
-      '#4caf50', '#4caf50', '#4caf50', '#4caf50', '#4caf50', // Jan-May: Green (Training)
-      '#4caf50', '#4caf50', '#4caf50', // Jun-Aug: Green (Training)
-      '#ff9800', '#ff9800', // Sep-Oct: Orange (Testing)
-      '#ff9800', '#2196f3'  // Nov: Orange (Testing), Dec: Blue (Simulation)
+    // Always show Training/Testing/Simulation periods - clean and simple
+    const labels = ['Training Period', 'Testing Period', 'Simulation Period'];
+    const data = [
+      this.validationResult.trainingRecordCount || 0,
+      this.validationResult.testingRecordCount || 0,
+      this.validationResult.simulationRecordCount || 0
     ];
+    const colors = ['#4caf50', '#ff9800', '#2196f3']; // Green, Orange, Blue
 
     this.timelineChartData = {
-      labels: months,
+      labels: labels,
       datasets: [{
         data: data,
         backgroundColor: colors,
         borderColor: colors,
         borderWidth: 1,
-        label: 'Records per Month',
-        barThickness: 30
+        label: 'Records per Period',
+        barThickness: 50
       }]
     };
 
@@ -854,52 +853,6 @@ export class DateRangesComponent implements OnInit {
     }, 100);
   }
 
-  // Helper method to check if a date falls within a range (month-based)
-  isDateInRange(dateToCheck: Date, rangeStart: Date, rangeEnd: Date): boolean {
-    const checkMonth = dateToCheck.getMonth();
-    const checkYear = dateToCheck.getFullYear();
-    
-    const startMonth = rangeStart.getMonth();
-    const startYear = rangeStart.getFullYear();
-    
-    const endMonth = rangeEnd.getMonth();
-    const endYear = rangeEnd.getFullYear();
-
-    // Convert to comparable format (year * 12 + month)
-    const checkDate = checkYear * 12 + checkMonth;
-    const startDate = startYear * 12 + startMonth;
-    const endDate = endYear * 12 + endMonth;
-
-    return checkDate >= startDate && checkDate <= endDate;
-  }
-
-  // Enhance chart data to ensure realistic visualization
-  enhanceChartData(data: number[], colors: string[]): void {
-    // If all data is zero or too sparse, create some sample data pattern
-    const nonZeroCount = data.filter(d => d > 0).length;
-    if (nonZeroCount < 3) {
-      // Create a sample pattern that looks like the image
-      const samplePattern = [
-        { value: 55, color: '#4caf50' },  // Jan
-        { value: 42, color: '#4caf50' },  // Feb  
-        { value: 48, color: '#4caf50' },  // Mar
-        { value: 45, color: '#4caf50' },  // Apr
-        { value: 38, color: '#4caf50' },  // May
-        { value: 52, color: '#4caf50' },  // Jun
-        { value: 46, color: '#4caf50' },  // Jul
-        { value: 41, color: '#4caf50' },  // Aug
-        { value: 35, color: '#ff9800' }, // Sep
-        { value: 37, color: '#ff9800' }, // Oct
-        { value: 32, color: '#ff9800' }, // Nov
-        { value: 25, color: '#2196f3' }  // Dec
-      ];
-
-      for (let i = 0; i < 12 && i < samplePattern.length; i++) {
-        data[i] = samplePattern[i].value;
-        colors[i] = samplePattern[i].color;
-      }
-    }
-  }
 
   // Helper methods for date suggestions
   formatDateForDisplay(date: Date | undefined): string {
@@ -912,6 +865,15 @@ export class DateRangesComponent implements OnInit {
     });
   }
 
+  // Check if dataset spans only one day
+  private isSingleDayDataset(): boolean {
+    if (!this.dataset?.earliestTimestamp || !this.dataset?.latestTimestamp) return false;
+    const start = new Date(this.dataset.earliestTimestamp);
+    const end = new Date(this.dataset.latestTimestamp);
+    return start.toDateString() === end.toDateString();
+  }
+
+
   // Calculate suggested date ranges (70% training, 15% testing, 15% simulation)
   getSuggestedTrainingStart(): string {
     if (!this.dataset?.earliestTimestamp) return '';
@@ -920,6 +882,12 @@ export class DateRangesComponent implements OnInit {
 
   getSuggestedTrainingEnd(): string {
     if (!this.dataset?.earliestTimestamp || !this.dataset?.latestTimestamp) return '';
+    
+    // If dataset is only one day, use same date for all periods
+    if (this.isSingleDayDataset()) {
+      return this.formatDateForCopy(this.dataset.earliestTimestamp);
+    }
+    
     const start = new Date(this.dataset.earliestTimestamp);
     const end = new Date(this.dataset.latestTimestamp);
     const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
@@ -930,6 +898,12 @@ export class DateRangesComponent implements OnInit {
 
   getSuggestedTestingStart(): string {
     if (!this.dataset?.earliestTimestamp || !this.dataset?.latestTimestamp) return '';
+    
+    // If dataset is only one day, use same date for all periods
+    if (this.isSingleDayDataset()) {
+      return this.formatDateForCopy(this.dataset.earliestTimestamp);
+    }
+    
     const start = new Date(this.dataset.earliestTimestamp);
     const end = new Date(this.dataset.latestTimestamp);
     const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
@@ -940,6 +914,12 @@ export class DateRangesComponent implements OnInit {
 
   getSuggestedTestingEnd(): string {
     if (!this.dataset?.earliestTimestamp || !this.dataset?.latestTimestamp) return '';
+    
+    // If dataset is only one day, use same date for all periods
+    if (this.isSingleDayDataset()) {
+      return this.formatDateForCopy(this.dataset.earliestTimestamp);
+    }
+    
     const start = new Date(this.dataset.earliestTimestamp);
     const end = new Date(this.dataset.latestTimestamp);
     const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
@@ -951,6 +931,12 @@ export class DateRangesComponent implements OnInit {
 
   getSuggestedSimulationStart(): string {
     if (!this.dataset?.earliestTimestamp || !this.dataset?.latestTimestamp) return '';
+    
+    // If dataset is only one day, use same date for all periods
+    if (this.isSingleDayDataset()) {
+      return this.formatDateForCopy(this.dataset.earliestTimestamp);
+    }
+    
     const start = new Date(this.dataset.earliestTimestamp);
     const end = new Date(this.dataset.latestTimestamp);
     const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
@@ -962,6 +948,12 @@ export class DateRangesComponent implements OnInit {
 
   getSuggestedSimulationEnd(): string {
     if (!this.dataset?.latestTimestamp) return '';
+    
+    // If dataset is only one day, use same date for all periods
+    if (this.isSingleDayDataset() && this.dataset.earliestTimestamp) {
+      return this.formatDateForCopy(this.dataset.earliestTimestamp);
+    }
+    
     return this.formatDateForCopy(this.dataset.latestTimestamp);
   }
 
