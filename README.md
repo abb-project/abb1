@@ -1,4 +1,4 @@
-# IntelliInspect: Real-Time Predictive Quality Control
+# IntelliInspect: Real-Time Predictive Quality Control:
 
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://docker.com)
 [![Angular](https://img.shields.io/badge/Angular-18+-red)](https://angular.io)
@@ -8,17 +8,17 @@
 
 **AI-powered manufacturing quality control system with real-time predictive analytics**
 
-## Overview
+## Overview:
 
 IntelliInspect is a complete **real-time predictive quality control system** designed for manufacturing environments. Using machine learning and sensor data, it predicts product quality **before** defects occur, enabling proactive process optimization and significant cost savings.
 
-### The Problem It Solves
+### The Problem It Solves:
 - **Manufacturing Crisis**: Production lines with 99%+ failure rates
 - **Reactive Quality Control**: Finding defects after products are made  
 - **Manual Inspection**: Slow, expensive, and inconsistent human inspectors
 - **Waste Costs**: Millions lost in scrapped materials and failed products
 
-### The IntelliInspect Solution
+### The IntelliInspect Solution:
 - **Predictive Analytics**: AI predicts quality issues before they happen
 - **Real-Time Processing**: 1-second prediction intervals during production
 - **Live Dashboard**: Beautiful visualizations with actionable insights
@@ -47,7 +47,7 @@ docker compose up --build
 
 ---
 
-## Demo Video
+## Demo Video:
 
 > **Full Demo**: Watch IntelliInspect in action from upload to real-time predictions
 
